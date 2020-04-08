@@ -318,8 +318,8 @@ class Game {
     }
 
     startGame() {
-        let mazeWidth = 5;
-        let mazeHeight = 5;
+        let mazeWidth = 10;
+        let mazeHeight = 10;
         this.gameStarted = true;
         this.maze = new Maze(mazeWidth, mazeHeight);
         this.maze.onGameEnd = () => {
