@@ -12,12 +12,10 @@ the first version of the maze game was pretty dumb. the walls were cells that yo
 
 ### Maze 2.0
 
-
-
-
-
-
+For the second maze I wanted to generate a random maze that always will have a path and that the walls will surround the cell. I had in mind to use the A* algorithm again to do so but in the end I've used Prim's minimum spanning tree algorithm variation. Prim's algorithm helped me get to the answer I was looking for.
 
 ## Roadmap
+
 - Convert to React
-- 
+- Allow saving / sharing a maze setup
+- Create a langauge in order to program the yellow guy to reach the fruit
