@@ -1,0 +1,68 @@
+:root {
+    --maze-border-size: 2px;
+}
+
+.maze-row {
+    display: table;
+}
+
+.maze-cell {
+    display: table-cell;
+    width: 30px;
+    height: 30px;
+
+    padding-top: var(--maze-border-size);
+    padding-right: var(--maze-border-size);
+    padding-bottom: var(--maze-border-size);
+    padding-left: var(--maze-border-size);
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.maze-wall-full {
+    border-bottom: var(--maze-border-size) solid black;
+    border-left: var(--maze-border-size) solid black;
+    border-top: var(--maze-border-size) solid black;
+    border-right: var(--maze-border-size) solid black;
+}
+
+.maze-wall-top {
+    border-top: var(--maze-border-size) solid black;
+    padding-top: 0;
+}
+
+.maze-wall-right {
+    border-right: var(--maze-border-size) solid black;
+    padding-right: 0;
+}
+
+.maze-wall-bottom {
+    border-bottom: var(--maze-border-size) solid black;
+    padding-bottom: 0;
+}
+
+.maze-wall-left {
+    border-left: var(--maze-border-size) solid black;
+    padding-left: 0;
+}
+
+.center {
+    margin: auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.popup-wrap{
+	position:absolute;
+	top:50%;
+	left:50%;
+	background-color:white;
+	z-index:1002;
+	overflow:auto;
+	width:400px;
+	margin-left:-200px;
+	margin-top:-200px;
+	text-align: center;
+}
