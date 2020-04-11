@@ -314,20 +314,27 @@ class Game {
     constructor(){
         this.maze = null;
         this.gameStarted = false;
+        this.level = 0;
         this.startGame();
     }
 
     startGame() {
-        let mazeWidth = 10;
-        let mazeHeight = 10;
+        this.level++;
+        let mazeWidth = 3 + this.level;
+        let mazeHeight = 3 + this.level;
         this.gameStarted = true;
         this.maze = new Maze(mazeWidth, mazeHeight);
         this.maze.onGameEnd = () => {
             this.gameStarted = false;
 
             // show message and restart button
-            var elem = document.getElementById('main-menu');
-            elem.style.display = "block";
+            var mainMenuElem = document.getElementById('main-menu');
+            mainMenuElem.style.display = "block";
+
+            // set the new game level
+            var gameLevel = document.getElementById('game-level');
+            gameLevel.innerText = this.level;
+
         }
         this.refreshMazeHTML();
     }
