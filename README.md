@@ -19,3 +19,9 @@ For the second maze I wanted to generate a random maze that always will have a p
 - Convert to React
 - Allow saving / sharing a maze setup
 - Create a langauge in order to program the yellow guy to reach the fruit
+
+## Thanks
+
+Icons made by [mynamepong](https://www.flaticon.com/authors/mynamepong "mynamepong") from [www.flaticon.com](https://www.flaticon.com/ "Flaticon")
+
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [www.flaticon.com](https://www.flaticon.com/ "Flaticon")

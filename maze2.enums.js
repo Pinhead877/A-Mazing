@@ -19,3 +19,10 @@ const KEYBOARD_KEYS =
 	DOWN: 'ArrowDown',
 	LEFT: 'ArrowLeft'
 };
+
+const FACE_DIRECTION = {
+    UP: "face-up",
+    RIGHT: "face-right",
+    DOWN: "face-down",
+    LEFT: "face-left"
+}

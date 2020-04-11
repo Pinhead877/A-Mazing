@@ -2,6 +2,10 @@
     --maze-border-size: 2px;
 }
 
+.maze-box{
+    background-color: gray;
+}
+
 .maze-row {
     display: table;
 }
@@ -65,4 +69,32 @@
 	margin-left:-200px;
 	margin-top:-200px;
 	text-align: center;
+}
+
+.player{
+    background-image: url("assets/car.png");
+}
+
+.collectable{
+    background-image: url("assets/gasoline.png");
+}
+
+.cell-object{
+    width: 80%;
+}
+
+.face-up{
+    transform: rotate(180deg);
+}
+
+.face-right{
+    transform: rotate(270deg);
+}
+
+.face-down{
+    transform: rotate(0deg);
+}
+
+.face-left{
+    transform: rotate(90deg);
 }

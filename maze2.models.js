@@ -1,3 +1,5 @@
+// TODO: move the player object from the maze to the game
+
 class Maze {
     constructor(width, height) {
         this.mazeArr = [];
@@ -51,35 +53,41 @@ class Maze {
             var currCell = this.mazeArr[this.player.position.y][this.player.position.x];
             var nextCell = this.mazeArr[moveY][moveX];
             
+            var faceDirection = null;
             // left check for right wall in nextCell
             if(direction == DIRECTION.LEFT){
                 if(nextCell.walls.filter(w => w.wallType == WALLS.RIGHT).length > 0){
                     return false;
                 }
+                faceDirection = FACE_DIRECTION.LEFT;
             }
             // up check for top wall in currCell
             else if(direction == DIRECTION.UP){
                 if(currCell.walls.filter(w => w.wallType == WALLS.TOP).length > 0){
                     return false;
                 }
+                faceDirection = FACE_DIRECTION.UP;
             }
             // right check for right wall in currCell
             else if(direction == DIRECTION.RIGHT){
                 if(currCell.walls.filter(w => w.wallType == WALLS.RIGHT).length > 0){
                     return false;
                 }
+                faceDirection = FACE_DIRECTION.RIGHT;
             }
             // down check for top wall in nextCell
             else if(direction == DIRECTION.DOWN){
                 if(nextCell.walls.filter(w => w.wallType == WALLS.TOP).length > 0){
                     return false;
                 }
+                faceDirection = FACE_DIRECTION.DOWN;
             }
             if(nextCell.occupant != null && nextCell.occupant instanceof Collectable){
                 if(this.onGameEnd){
                     this.onGameEnd();
                 }
             }
+            this.player.turnPlayer(faceDirection);
             this.placePlayer(moveX,moveY);
             return true;
         }
@@ -253,8 +261,8 @@ class Cell {
 
     toHTML() {
         var wallsClassValue = this.walls.map(w => w.toHtmlClassValue()).join(" ");
-        var divValue = this.occupant ? this.occupant.toHTML() : "";
-        return `<div class="maze-cell ${wallsClassValue}">${divValue}</div>`;
+        var occupantValue = this.occupant ? this.occupant.toHTML() : "";
+        return `<div class="maze-cell ${wallsClassValue}">${occupantValue}</div>`;
     }
 }
 
@@ -263,8 +271,8 @@ class PositionBaseObject{
         this.position = new Point(x,y);
     }
 
-    toHTML() {
-        return "";
+    toHTML(imgSrc, divClass) {
+        return `<img class="cell-object ${divClass}" src="${imgSrc}"/>`;
     }
 }
 
@@ -272,16 +280,22 @@ class Player extends PositionBaseObject {
     constructor(x,y){
         super(x,y);
         this.points = 0;
+        this.faceDirection = FACE_DIRECTION.DOWN;
     }
     
     toHTML() {
-        return "&#128512;";
+        var divClass = this.faceDirection;
+        return super.toHTML("assets/car.png", divClass);
+    }
+
+    turnPlayer(faceDirection){
+        this.faceDirection = faceDirection;
     }
 }
 
 class Collectable extends PositionBaseObject {
     toHTML() {
-        return "&#127827;";
+        return super.toHTML("assets/gasoline.png");
     }
 }
 
